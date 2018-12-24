@@ -46,9 +46,6 @@ public class CollectionAscendingOrder implements Comparable<CollectionAscendingO
 	public List<CollectionAscendingOrder> names(List<CollectionAscendingOrder> nameList) {
 		Iterator<CollectionAscendingOrder> iterateNames = nameList.iterator();
 		Collections.sort(nameList);
-		for(Object names : nameList){
-			System.out.println(names);
-		}
 		return nameList;
 	}
 }

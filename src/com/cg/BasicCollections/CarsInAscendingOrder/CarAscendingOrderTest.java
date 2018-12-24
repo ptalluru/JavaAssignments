@@ -29,7 +29,7 @@ public class CarAscendingOrderTest {
 		carFive = new CarAscendingOrder("Tata","Model 5",2020,400000);
 	}
 	@Test
-	public void test() {
+	public void ascendingOrderTest() {
 		List<CarAscendingOrder> carLists = new ArrayList<>();
 		carLists.add(carOne);
 		carLists.add(carTwo);
@@ -38,7 +38,16 @@ public class CarAscendingOrderTest {
 		carLists.add(carFive);
 		
 		CarAscendingOrder car = new CarAscendingOrder();
-		car.ascending(carLists);
+		String actual = car.ascending(carLists).toString();
+		String expected ="[CarAscendingOrder [make=Astra, model=Model 3, year=2018, price=1500000.0],"
+					+ " CarAscendingOrder [make=Bentley, model=Model 4, year=2019, price=2000000.0],"
+					+ " CarAscendingOrder [make=Hyundai, model=Model 1, year=2016, price=1000000.0],"
+					+ " CarAscendingOrder [make=RR, model=Model 2, year=2017, price=2500000.0],"
+					+ " CarAscendingOrder [make=Tata, model=Model 5, year=2020, price=400000.0]]";
+		assertEquals(expected,actual);
+		
+		
+		
 	}
 
 }

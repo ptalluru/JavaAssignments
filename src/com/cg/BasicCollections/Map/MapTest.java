@@ -42,13 +42,15 @@ public class MapTest {
 
 		Set set = favourite.entrySet();
 		Iterator iterate = set.iterator();
-		while (iterate.hasNext()) {
-			Map.Entry print = (Map.Entry) iterate.next();
-			System.out.println(print.getKey()+" : "+print.getValue());
-		}
+		String actual=set.toString();
+		String expected = "[Jaffar=HashMapping [fruits=Banana],"
+						+ " Prasanth=HashMapping [fruits=Strawberry],"
+						+ " Ajay=HashMapping [fruits=Apple],"
+						+ " Sriram=HashMapping [fruits=BlackBerry],"
+						+ " Manoj=HashMapping [fruits=PineApple]]";
+		assertEquals(expected,actual);
 		
-		String expected = "HashMapping [fruits=BlackBerry]";
-		assertEquals(expected,favourite.get("Sriram").toString());
-		
+		String expectedFavourite = "HashMapping [fruits=BlackBerry]";
+		assertEquals(expectedFavourite,favourite.get("Sriram").toString());
 	}
 }

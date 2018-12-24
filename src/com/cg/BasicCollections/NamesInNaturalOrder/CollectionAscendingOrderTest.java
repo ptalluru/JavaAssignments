@@ -30,7 +30,13 @@ public class CollectionAscendingOrderTest {
 		nameList.add(nameFive);
 		
 		CollectionAscendingOrder passList = new CollectionAscendingOrder();
-		List<CollectionAscendingOrder>result=passList.names(nameList);
+		String actual = passList.names(nameList).toString();
+		String expected = "[CollectionAscendingOrder [name=Ajay],"
+						+ " CollectionAscendingOrder [name=Jaffar],"
+						+ " CollectionAscendingOrder [name=Manoj],"
+						+ " CollectionAscendingOrder [name=Prasanth],"
+						+ " CollectionAscendingOrder [name=Sriram]]";
+		assertEquals(expected,actual);
 		
 	}
 

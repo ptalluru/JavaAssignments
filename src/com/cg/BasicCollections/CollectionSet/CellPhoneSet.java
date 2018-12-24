@@ -2,10 +2,7 @@ package com.cg.BasicCollections.CollectionSet;
 
 public class CellPhoneSet {
 
-
-
 	private String company,model,description,operatingSystem;
-
 	private double price;
 
 	public String getCompany() {
