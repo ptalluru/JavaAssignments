@@ -54,9 +54,6 @@ public class CarAscendingOrder implements Comparable<CarAscendingOrder>{
 	public List<CarAscendingOrder> ascending(List<CarAscendingOrder> carLists) {
 		Iterator<CarAscendingOrder> iterate = carLists.iterator();
 		Collections.sort(carLists);
-		/*for(Object cars : carLists){
-			System.out.println(cars);
-		}*/
 		return carLists;
 	}
 	
