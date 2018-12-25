@@ -1,5 +1,7 @@
 package com.MMBank;
 
+import javax.management.RuntimeErrorException;
+
 public abstract class  SavingsAccount extends BankAccount {
 
 	private boolean isSalaried;
@@ -20,7 +22,4 @@ public abstract class  SavingsAccount extends BankAccount {
 		return "SavingsAccount [isSalaried=" + isSalaried + ", toString()="
 				+ super.toString() + "]";
 	}
-
-
-	
 }

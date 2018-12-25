@@ -1,22 +1,15 @@
 package com.cg.AdvancedCollections.SavingsAccount;
 
 import static org.junit.Assert.*;
-
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,7 +18,7 @@ public class SavingsAccountTest {
 							savingsAccountFive,savingsAccountSix,savingsAccountSeven;
 	private BankAccountList bankAccountList;
 	List<SavingsAccount> al = new ArrayList<SavingsAccount>();
-	
+
 	@Before
 	public void setUp(){
 		savingsAccountOne = new SavingsAccount(105,15000,"Prasanth",true);
@@ -35,7 +28,7 @@ public class SavingsAccountTest {
 		savingsAccountFive = new SavingsAccount(100,23000,"Jaffar",true);
 		savingsAccountSix = new SavingsAccount(105,2000,"Yugesh",true);
 		savingsAccountSeven = new SavingsAccount(1,200000,"NTR",true); 
-		
+
 		al.add(savingsAccountOne);
 		al.add(savingsAccountTwo);
 		al.add(savingsAccountThree);
@@ -43,7 +36,7 @@ public class SavingsAccountTest {
 		al.add(savingsAccountFive);
 		al.add(savingsAccountSix);
 		al.add(savingsAccountSeven);
-		
+
 	}
 
 	@Test
@@ -56,8 +49,6 @@ public class SavingsAccountTest {
 			al.add(savingsAccountFive);
 			al.add(savingsAccountSix);
 			al.add(savingsAccountSeven);
-			for (SavingsAccount savingAccount : al) {
-			}
 			for (SavingsAccount savingAccount2 : al) {
 				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:\\Users\\ptalluru\\Desktop\\SavingsList.txt"));
 				oos.writeObject(savingAccount2);
@@ -70,10 +61,8 @@ public class SavingsAccountTest {
 			}
 	}
 
-
 	@Test
 	public void testObjectsThroughArrayList() throws FileNotFoundException, IOException, ClassNotFoundException {
-		
 		bankAccountList = new BankAccountList();
 		Set<SavingsAccount> customerSet = bankAccountList.addAccountsList(al);
 		String expected = "[SavingAccount [accountbalance=30000.0, accountid=1, accountholdername=Manoj, issalariedaccount=false],"
@@ -82,13 +71,5 @@ public class SavingsAccountTest {
 						+ " SavingAccount [accountbalance=15000.0, accountid=105, accountholdername=Prasanth, issalariedaccount=true],"
 						+ " SavingAccount [accountbalance=50000.0, accountid=200, accountholdername=Ajay, issalariedaccount=false]]";
 		assertEquals(expected,customerSet.toString());
-	
-		
 	}
-	
-	
-	
 }
-
-	
-

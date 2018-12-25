@@ -1,27 +1,32 @@
 package com.cg.AdvancedCollections.SavingsAccount;
 
-import java.io.FileWriter;
 import java.io.Serializable;
 
+import com.MMBank.InsufficientException;
+import com.MMBank.InvalidInputException;
+
 public class SavingsAccount implements Serializable,Comparable<SavingsAccount>{
-	private double accountbalance;
-	private int accountid;
-	private String accountholdername;
-	private boolean issalariedaccount;
-	private static int accountidGenerator;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6539568974409598816L;
+	private double accountBalance;
+	private int accountId;
+	private String accountHolderName;
+	private boolean isSalariedAccount;
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(accountbalance);
+		temp = Double.doubleToLongBits(accountBalance);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime
 				* result
-				+ ((accountholdername == null) ? 0 : accountholdername
+				+ ((accountHolderName == null) ? 0 : accountHolderName
 						.hashCode());
-		result = prime * result + (issalariedaccount ? 1231 : 1237);
+		result = prime * result + (isSalariedAccount ? 1231 : 1237);
 		return result;
 	}
 
@@ -34,49 +39,103 @@ public class SavingsAccount implements Serializable,Comparable<SavingsAccount>{
 		if (getClass() != obj.getClass())
 			return false;
 		SavingsAccount other = (SavingsAccount) obj;
-		if (Double.doubleToLongBits(accountbalance) != Double
-				.doubleToLongBits(other.accountbalance))
+		if (Double.doubleToLongBits(accountBalance) != Double
+				.doubleToLongBits(other.accountBalance))
 			return false;
-		if (accountholdername == null) {
-			if (other.accountholdername != null)
+		if (accountHolderName == null) {
+			if (other.accountHolderName != null)
 				return false;
-		} else if (!accountholdername.equals(other.accountholdername))
+		} else if (!accountHolderName.equals(other.accountHolderName))
 			return false;
-		if (issalariedaccount != other.issalariedaccount)
+		if (isSalariedAccount != other.isSalariedAccount)
 			return false;
 		return true;
 	}
 
-	public SavingsAccount(int accountid,double accountbalance, String accountholdername,
-			boolean issalariedaccount) {
+	public SavingsAccount(int accountId,double accountBalance, String accountHolderName,
+			boolean isSalariedAccount) {
 		super();
-		this.accountid=accountid;
-		this.accountbalance = accountbalance;
-		this.accountholdername = accountholdername;
-		this.issalariedaccount = issalariedaccount;
+		this.accountId=accountId;
+		this.accountBalance = accountBalance;
+		this.accountHolderName = accountHolderName;
+		this.isSalariedAccount = isSalariedAccount;
 	}
 
-	
+	public double getAccountbalance() {
+		return accountBalance;
+	}
+
+	public void setAccountbalance(double accountbalance) {
+		this.accountBalance = accountbalance;
+	}
+
+	public int getAccountid() {
+		return accountId;
+	}
+
+	public void setAccountid(int accountid) {
+		this.accountId = accountid;
+	}
+
+	public String getAccountholdername() {
+		return accountHolderName;
+	}
+
+	public void setAccountholdername(String accountholdername) {
+		this.accountHolderName = accountholdername;
+	}
+
+	public boolean isIssalariedaccount() {
+		return isSalariedAccount;
+	}
+
+	public void setIssalariedaccount(boolean issalariedaccount) {
+		this.isSalariedAccount = issalariedaccount;
+	}
+
 	public SavingsAccount() {
 		super();
 	}
 
 	@Override
 	public String toString() {
-		return "SavingAccount [accountbalance=" + accountbalance
-				+ ", accountid=" + accountid + ", accountholdername="
-				+ accountholdername + ", issalariedaccount="
-				+ issalariedaccount + "]";
+		return "SavingAccount [accountbalance=" + accountBalance
+				+ ", accountid=" + accountId + ", accountholdername="
+				+ accountHolderName + ", issalariedaccount="
+				+ isSalariedAccount + "]";
 	}
+
+
 
 	@Override
 	public int compareTo(SavingsAccount a) {
-		if( a.accountid==this.accountid)
+		if( a.accountId==this.accountId)
 			return 0;
-		else if(a.accountid>this.accountid)
+		else if(a.accountId>this.accountId)
 			return -1;
 		else
 			return 1;
+	}
+
+	public void deposit(double amount) throws Exception{
+		if(amount<=0){
+			throw new InvalidInputException("Invalid Input");
+		}
+		else
+		accountBalance=accountBalance+amount;
+	}
+	
+	
+	
+	public void withdraw(double amount) throws Exception {
+		if(amount<=0){
+			throw new InvalidInputException("Invalid Input");
+		}
+		else if(amount>accountBalance){
+			throw new InsufficientException("Insufficient");
+		}
+		else
+		accountBalance=accountBalance-amount;
 	}
 
 	}
