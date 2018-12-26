@@ -48,14 +48,6 @@ public class SavingsAccountTest {
 
 	@Test
 	public void testForPrintingObjectsThroughArrayList() throws FileNotFoundException, IOException, ClassNotFoundException {
-			List<SavingsAccount> al = new ArrayList<SavingsAccount>();
-			al.add(savingsAccountOne);
-			al.add(savingsAccountTwo);
-			al.add(savingsAccountThree);
-			al.add(savingsAccountFour);
-			al.add(savingsAccountFive);
-			al.add(savingsAccountSix);
-			al.add(savingsAccountSeven);
 			for (SavingsAccount savingAccount2 : al) {
 				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:\\Users\\ptalluru\\Desktop\\SavingsList.txt"));
 				oos.writeObject(savingAccount2);
