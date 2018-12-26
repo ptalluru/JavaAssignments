@@ -18,4 +18,63 @@ package com.cg.AdvancedCollections.EmployeeInfo;
 
 public class MMASavingAccount {
 
+	private int accountId;
+	private String accountHolderName;
+	private double accountBalance;
+	private boolean isSalaryAccount;
+	
+	public MMASavingAccount(int accountId, String accountHolderName,
+			double accountBalance, boolean isSalaryAccount) {
+		super();
+		this.accountId = accountId;
+		this.accountHolderName = accountHolderName;
+		this.accountBalance = accountBalance;
+		this.isSalaryAccount = isSalaryAccount;
+	}
+
+	public MMASavingAccount() {
+	}
+
+	public int getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
+	}
+
+	public String getAccountHolderName() {
+		return accountHolderName;
+	}
+
+	public void setAccountHolderName(String accountHolderName) {
+		this.accountHolderName = accountHolderName;
+	}
+
+	public double getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(double accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+	public boolean isSalaryAccount() {
+		return isSalaryAccount;
+	}
+
+	public void setSalaryAccount(boolean isSalaryAccount) {
+		this.isSalaryAccount = isSalaryAccount;
+	}
+
+	@Override
+	public String toString() {
+		return "MMASavingAccount [accountId=" + accountId
+				+ ", accountHolderName=" + accountHolderName
+				+ ", accountBalance=" + accountBalance + ", isSalaryAccount="
+				+ isSalaryAccount + "]";
+	}
+	
+	
+	
 }

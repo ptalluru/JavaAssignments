@@ -40,9 +40,7 @@ public class MapTest {
 		favourite.put("Sriram", hashFour);
 		favourite.put("Manoj", hashFive);
 
-		Set set = favourite.entrySet();
-		Iterator iterate = set.iterator();
-		String actual=set.toString();
+		String actual=favourite.entrySet().toString();;
 		String expected = "[Jaffar=HashMapping [fruits=Banana],"
 						+ " Prasanth=HashMapping [fruits=Strawberry],"
 						+ " Ajay=HashMapping [fruits=Apple],"
@@ -50,7 +48,23 @@ public class MapTest {
 						+ " Manoj=HashMapping [fruits=PineApple]]";
 		assertEquals(expected,actual);
 		
+		
 		String expectedFavourite = "HashMapping [fruits=BlackBerry]";
-		assertEquals(expectedFavourite,favourite.get("Sriram").toString());
+		String actualFavourite = favourite.get("Sriram").toString();
+		assertEquals(expectedFavourite,actualFavourite);
+	}
+	
+	@Test(expected = RuntimeException.class)
+	public void testForInvalidInputKey() {
+		Map<String, HashMapping> favourite = new HashMap<String, HashMapping>();
+		favourite.put("Ajay", hashOne);
+		favourite.put("Prasanth", hashTwo);
+		favourite.put("Jaffar", hashThree);
+		favourite.put("Sriram", hashFour);
+		favourite.put("Manoj", hashFive);
+		
+		String expectedFavourite = "HashMapping [fruits=BlackBerry]";
+		String actualFavourite = favourite.get("Ram").toString();
+		assertEquals(expectedFavourite,actualFavourite);
 	}
 }

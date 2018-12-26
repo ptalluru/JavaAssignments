@@ -80,7 +80,6 @@ public class MovieDetailsList {
 			return movieList;	
 
 		case SortByGenre :
-
 			Collections.sort(movieList, new Comparator<MovieDetails>(){
 					@Override
 					public int compare(MovieDetails genreOne, MovieDetails genreTwo) {
